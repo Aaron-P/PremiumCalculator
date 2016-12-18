@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "Scripts/background.min.js",
+    "inputFiles": [
+      "Scripts/background.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/extension.min.js",
+    "inputFiles": [
+      "Scripts/extension.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/options.min.js",
+    "inputFiles": [
+      "Scripts/options.js"
+    ]
+  },
+  {
+    "outputFileName": "options.min.html",
+    "inputFiles": [
+      "options.html"
+    ]
+  }
+]

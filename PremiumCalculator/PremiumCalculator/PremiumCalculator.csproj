@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{4219EA8D-30D7-44CD-99F8-4384BD422E7A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="options.min.html">
+      <DependentUpon>options.html</DependentUpon>
+    </Content>
+    <Content Include="Scripts\background.js">
+      <DependentUpon>background.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\background.min.js">
+      <DependentUpon>background.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\extension.js">
+      <DependentUpon>extension.ts</DependentUpon>
+    </Content>
+    <Content Include="Icons\icon.svg" />
+    <Content Include="Icons\icon128.png" />
+    <Content Include="Icons\icon16.png" />
+    <Content Include="Icons\icon32.png" />
+    <Content Include="Icons\icon48.png" />
+    <Content Include="options.html" />
+    <Content Include="Scripts\extension.min.js">
+      <DependentUpon>extension.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\options.js">
+      <DependentUpon>options.ts</DependentUpon>
+    </Content>
+    <Content Include="Scripts\options.min.js">
+      <DependentUpon>options.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\extension.ts" />
+    <TypeScriptCompile Include="Scripts\options.ts" />
+    <TypeScriptCompile Include="Scripts\background.ts" />
+    <TypeScriptCompile Include="Scripts\typings\chrome.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="manifest.json" />
+    <Content Include="Scripts\background.js.map">
+      <DependentUpon>background.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\options.js.map">
+      <DependentUpon>options.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\extension.js.map">
+      <DependentUpon>extension.js</DependentUpon>
+    </Content>
+    <Content Include="LICENSE.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bundleconfig.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>PremiumCalculator</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50183</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50183/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)package.bat" "$(ProjectDir)" "$(SolutionDir)" "$(TargetDir)" "$(ProjectName)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

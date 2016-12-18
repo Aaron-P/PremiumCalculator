@@ -1,0 +1,34 @@
+﻿{
+  "background": {
+    "scripts": [
+      "Scripts/background.min.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.apmex.com/product/*",
+        "*://www.providentmetals.com/*"
+      ],
+      "js": [
+        "Scripts/extension.min.js"
+      ]
+    }
+  ],
+  "description": "A premium calculator for apmex.com and providentmetals.com.",
+  "icons": {
+    "16": "Icons/icon16.png",
+    "32": "Icons/icon48.png",
+    "48": "Icons/icon48.png",
+    "128": "Icons/icon128.png"
+  },
+  "manifest_version": 2,
+  "name": "Premium Calculator",
+  "options_ui": { "page": "options.min.html" },
+  "permissions": [
+    "webRequest",
+    "storage",
+    "*://www.providentmetals.com/*"
+  ],
+  "version": "1.0"
+}
