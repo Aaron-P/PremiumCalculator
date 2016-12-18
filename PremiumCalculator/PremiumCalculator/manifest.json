@@ -24,7 +24,9 @@
   },
   "manifest_version": 2,
   "name": "Premium Calculator",
-  "options_ui": { "page": "options.min.html" },
+  "options_ui": {
+    "page": "options.min.html"
+  },
   "permissions": [
     "webRequest",
     "storage",
